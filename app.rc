@@ -1,0 +1,17 @@
+fn conf_enable_nietzsche {
+    enable_nietzsche=yes
+    conf_enable_app nietzsche
+}
+
+fn nietzsche_init {
+    if (! ~ $#enable_nietzsche 0 ) {
+        handler_body_main=nietzsche_quote
+        handlers_bar_left=()
+        handlers_body_foot=()
+       
+    }
+}
+
+fn nietzsche_quote {
+    echo `{fortune apps/nietzsche/human.txt}
+}
