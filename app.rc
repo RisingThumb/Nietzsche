@@ -1,17 +1,18 @@
-fn conf_enable_nietzsche {
-    enable_nietzsche=yes
-    conf_enable_app nietzsche
+fn conf_enable_beattime {
+    enable_beattime=yes
+    conf_enable_app beattime
 }
 
-fn nietzsche_init {
-    if (! ~ $#enable_nietzsche 0 ) {
-        handler_body_main=nietzsche_quote
+fn beattime_init {
+    if (! ~ $#enable_beattime 0 ) {
+        handler_body_main=beattime
         handlers_bar_left=()
         handlers_body_foot=()
        
     }
 }
 
-fn nietzsche_quote {
-    echo `{fortune apps/nietzsche/human.txt}
+fn beattime {
+    beat=`{/var/www/werc/apps/beattime/schizoclock}
+    echo $beat
 }
